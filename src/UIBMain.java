@@ -5,8 +5,7 @@ public class UIBMain {
 		Conta ct1 = new Conta();
 		
 		
-		ct1.cliente = new Cliente();
-		ct1.cliente.nome = "Arthur";
+		ct1.cliente = new Cliente("Arthur" ," 0001");
 		ct1.numero = 0001;
 		ct1.saldo = 100.00;
 		
