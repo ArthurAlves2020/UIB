@@ -1,10 +1,39 @@
 
 public class Conta {
-	public int numero;
-	public double saldo;
-	public Cliente cliente;
 	
+	private static int ultimoNumeroGerado = 1;
+	private int numero;
+	private double saldo;
+	private Cliente cliente;
+	
+	
+	
+	public Conta(int numero, double saldo, Cliente cliente) {
+		super();
+		this.numero = numero;
+		this.saldo = saldo;
+		this.cliente = cliente;
+	}
 
+	public void creditar(double credito) {
+		this.saldo = getSaldo() + credito;
+		
+	}
+	
+	public void debitar(double debito) {
+		this.saldo = getSaldo() - debito;
+		
+	}
+	public void transferir(double transferencia, Conta destino) {
+	
+	if(transferencia > 0) {
+		debitar(transferencia);
+		destino.creditar(transferencia);
+		
+	}
+				
+	}
+	
 	public int getNumero() {
 		return numero;
 	}
@@ -28,12 +57,15 @@ public class Conta {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	public void status() {
-		System.out.println(this.numero);
-		System.out.println(this.saldo);
-		System.out.println(this.cliente.getNome());
 
-
+	@Override
+	public String toString() {
+		return "Conta [numero=" + numero + ", saldo=" + saldo + ", cliente=" + cliente.getNome() + "]";
 	}
+	
+	public void gerarNumero() {
+		this.numero = ultimoNumeroGerado ++;
+	}
+	
+	
 }

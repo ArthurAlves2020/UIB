@@ -1,17 +1,13 @@
 
 public class Cliente {
 	
-	public String nome;
-	public String cpf;
-	
-	
-	
-	
+	private String nome;
+	private String cpf;
 	
 	public Cliente(String nome, String cpf) {
-		super();
-		this.nome = nome;
-		this.cpf = cpf;
+	super();
+	this.nome = nome;
+	this.cpf = cpf;
 	}
 
 	public String getNome() {

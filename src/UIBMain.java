@@ -2,14 +2,25 @@
 public class UIBMain {
 
 	public static void main(String[] args) {
-		Conta ct1 = new Conta();
+
+		
+		Conta listaContas[] = new Conta[2];
+		Cliente listaClientes[] = new Cliente[2];
+		
+		listaClientes[0] = new Cliente("Arthur", "355454658-08");
+		listaClientes[1] = new Cliente("XXXXX", "355455684-99");
+		
+		listaContas[0] = new Conta(002, 0, listaClientes[1]);
+		listaContas[1] = new Conta(001, 0, listaClientes[0]);
 		
 		
-		ct1.cliente = new Cliente("Arthur" ," 0001");
-		ct1.numero = 0001;
-		ct1.saldo = 100.00;
+		listaContas[0].debitar(100);
+		listaContas[0].creditar(20);
 		
-		ct1.status();
-	}
+		listaContas[1].transferir(150, listaContas[0]);
+		
+		System.out.println(listaContas[0].toString());
+		System.out.println(listaContas[1].toString());
+		}
 
 }
