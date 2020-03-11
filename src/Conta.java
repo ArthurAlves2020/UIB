@@ -6,22 +6,15 @@ public class Conta {
 	private double saldo;
 	private Cliente cliente;
 	
-	
-	
-	public Conta(int numero, double saldo, Cliente cliente) {
-		super();
-		this.numero = numero;
-		this.saldo = saldo;
-		this.cliente = cliente;
-	}
-
 	public void creditar(double credito) {
 		this.saldo = getSaldo() + credito;
+		System.out.println("Conta " + getNumero() + " Credito de " + credito +" Saldo Total " + this.getSaldo());
 		
 	}
 	
 	public void debitar(double debito) {
 		this.saldo = getSaldo() - debito;
+		System.out.println("Conta" + getNumero() + " Debito de " + debito +" Saldo Total " + this.getSaldo());
 		
 	}
 	public void transferir(double transferencia, Conta destino) {
@@ -29,6 +22,7 @@ public class Conta {
 	if(transferencia > 0) {
 		debitar(transferencia);
 		destino.creditar(transferencia);
+		System.out.println("Conta " + getNumero() + " Transferencia de " + transferencia +" Para Conta de numero " + destino.getNumero()+" Do " + destino.getCliente() + " Saldo Total: " + this.getSaldo());
 		
 	}
 				
@@ -58,13 +52,15 @@ public class Conta {
 		this.cliente = cliente;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Conta [numero=" + numero + ", saldo=" + saldo + ", cliente=" + cliente.getNome() + "]";
 	}
-	
+
 	public void gerarNumero() {
 		this.numero = ultimoNumeroGerado ++;
+		System.out.println("O numero da sua Conta é: " + this.numero);
 	}
 	
 	
