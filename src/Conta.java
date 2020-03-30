@@ -5,6 +5,7 @@ public class Conta {
 	private int numero;
 	private double saldo;
 	private Cliente cliente;
+	private String senha;
 	
 	public void creditar(double credito) {
 		this.saldo = getSaldo() + credito;
@@ -14,7 +15,7 @@ public class Conta {
 	
 	public void debitar(double debito) {
 		this.saldo = getSaldo() - debito;
-		System.out.println("Conta" + getNumero() + " Debito de " + debito +" Saldo Total " + this.getSaldo());
+		System.out.println("Conta " + getNumero() + " Debito de " + debito +" Saldo Total " + this.getSaldo());
 		
 	}
 	public void transferir(double transferencia, Conta destino) {
@@ -28,6 +29,15 @@ public class Conta {
 				
 	}
 	
+		
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public int getNumero() {
 		return numero;
 	}
@@ -55,7 +65,7 @@ public class Conta {
 	
 	@Override
 	public String toString() {
-		return "Conta [numero=" + numero + ", saldo=" + saldo + ", cliente=" + cliente.getNome() + "]";
+		return "Conta: " + numero + ", Saldo:"  + saldo + ", Cliente: " + cliente.getNome();
 	}
 
 	public void gerarNumero() {
